@@ -7,7 +7,7 @@ import { LoggerService } from '../log/logger.service';
 })
 export class ProductService {
 
-  constructor(private loggerService: LoggerService) { 
+  constructor(private loggerService: LoggerService) {
     this.loggerService.log("Product Service Constructed");
   }
 
@@ -22,5 +22,10 @@ export class ProductService {
     ];
 
     return products;
+  }
+
+  public getProduct(id:number) {
+    let products: Product[] = this.getProducts();
+    return products.find(p => p.productID == id);
   }
 }
