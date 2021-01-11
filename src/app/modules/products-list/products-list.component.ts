@@ -5,16 +5,13 @@ import { ProductService } from 'src/app/Product.Service';
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.css']
+  styleUrls: ['./products-list.component.css'],
+  providers: [ProductService]
 })
 export class ProductsListComponent implements OnInit {
-
   products: Product[] = [];
-  productService;
 
-  constructor() {
-    this.productService = new ProductService();
-  }
+  constructor(private productService:ProductService) { }
 
   getProducts() {
     this.products = this.productService.getProducts();
